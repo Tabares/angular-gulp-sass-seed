@@ -11,8 +11,12 @@
   "devDependencies": {
     "gulp": "^3.9.0",
     "gulp-concat": "^2.6.0",
+    "gulp-debug": "^2.1.2",
     "gulp-flatten": "^0.2.0",
     "gulp-sass": "^2.1.0",
     "gulp-util": "^3.0.7"
+  },
+  "dependencies": {
+    "ui-router": "^0.2.15"
   }
 }

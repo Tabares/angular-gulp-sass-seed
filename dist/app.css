@@ -1,2 +1,8 @@
 body {
   background-color: white; }
+
+.red-font {
+  color: red; }
+
+.clickable {
+  cursor: pointer; }

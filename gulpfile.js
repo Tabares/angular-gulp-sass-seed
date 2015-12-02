@@ -2,12 +2,15 @@ var gulp = require('gulp'),
 	util = require('gulp-util'),
 	concat = require('gulp-concat'),
 	sass = require('gulp-sass'),
-	flatten = require('gulp-flatten');;
+	flatten = require('gulp-flatten'),
+	debug = require('gulp-debug');
 
 gulp.task('html', function() {
 	gulp.src('src/**/index.html')
+		.pipe(flatten())
 		.pipe(gulp.dest('dist'));
-	gulp.src('src/**/*.html!index.html')
+	gulp.src(['src/**/*.html','!src/**/index.html'])
+		.pipe(flatten())
 		.pipe(gulp.dest('dist/view'));
 	util.log(util.colors.yellow('html processed'));
 });
@@ -17,6 +20,8 @@ gulp.task('js', function() {
 		'src/**/*.module.js',
 		'src/**/*.factory.js',
 		'src/**/*.service.js',
+		'src/**/*.filter.js',
+		'src/**/*.config.js',
 		'src/**/*.controller.js',
 		'src/**/*.directive.js'
 	])

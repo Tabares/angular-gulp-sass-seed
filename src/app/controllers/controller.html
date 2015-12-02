@@ -1,0 +1,70 @@
+<h3>$scope vs "this"</h3>
+<hr/>
+
+<h5>Home Controller ($scope with primitive)</h5>
+<div ng-controller="ScopeHomeController">
+	<input class="form-control" type="text" ng-model="message"/>
+	<p>{{message}}</p>
+	<br/>
+	<h5>Child Controller</h5>
+	<div ng-controller="ChildController">
+		<input class="form-control" type="text" ng-model="message"/>
+		<p>{{message}}</p>
+	</div>
+</div>
+<hr/>
+
+<h5>Home Controller ($scope with property)</h5>
+<div ng-controller="ScopeHomeController">
+	<input class="form-control" type="text" ng-model="data.message"/>
+	<p>{{data.message}}</p>
+	<br/>
+	<h5>Child Controller</h5>
+	<div ng-controller="ChildController">
+		<input class="form-control" type="text" ng-model="data.message"/>
+		<p>{{data.message}}</p>
+	</div>
+</div>
+<hr/>
+
+<h5>Home Controller (this with primitive)</h5>
+<div ng-controller="ThisHomeController as thisHome">
+	<input class="form-control" type="text" ng-model="thisHome.message"/>
+	<p>{{thisHome.message}}</p>
+	<br/>
+	<h5>Child Controller</h5>
+	<div ng-controller="ChildController">
+		<input class="form-control" type="text" ng-model="thisHome.message"/>
+		<p>{{thisHome.message}}</p>
+	</div>
+</div>
+<hr/>
+
+<h5>Home Controller (2 controllers w/shared service primitive)</h5>
+<br/>
+<h5>Controller 1</h5>
+<div ng-controller="DataHomeController as dataHome">
+	<input class="form-control" type="text" ng-model="dataHome.message"/>
+	<p>{{dataHome.message}}</p>
+</div>
+<br/>
+<h5>Controller 2</h5>
+<div ng-controller="SharedHomeController as sharedHome">
+	<input class="form-control" type="text" ng-model="sharedHome.data.message"/>
+	<p>{{sharedHome.data.message}}</p>
+</div>
+<hr/>
+
+<h5>Home Controller (2 controllers w/shared service property)</h5>
+<br/>
+<h5>Controller 1</h5>
+<div ng-controller="DataHomeController as dataHome">
+	<input class="form-control" type="text" ng-model="dataHome.data.message"/>
+	<p>{{dataHome.data.message}}</p>
+</div>
+<br/>
+<h5>Controller 2</h5>
+<div ng-controller="SharedHomeController as sharedHome">
+	<input class="form-control" type="text" ng-model="sharedHome.data.message"/>
+	<p>{{sharedHome.data.message}}</p>
+</div>
